@@ -31,24 +31,31 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'Produk berhasil ditambahkan');
     }
 
-    public function update(Request $request, Product $product)
+    public function edit($id)
     {
+        $product = Product::findOrFail($id);
+        return view('edit', compact('product'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+
         $validated = $request->validate([
-            'name' => 'required|string',
-            'description' => 'required|string',
+            'name' => 'required',
+            'description' => 'required',
             'price' => 'required|numeric',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
-            if ($product->image) {
-                Storage::disk('public')->delete($product->image);
-            }
-            $validated['image'] = $request->file('image')->store('products', 'public');
+            $imagePath = $request->file('image')->store('product-images', 'public');
+            $validated['image'] = $imagePath;
         }
 
         $product->update($validated);
-        return redirect()->back()->with('success', 'Produk berhasil diperbarui');
+
+        return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
 
     public function destroy(Product $product)

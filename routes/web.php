@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -28,8 +29,16 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
     Route::post('/product', [ProductController::class, 'store'])->name('product.store');
-    Route::put('/product/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+    Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
+
 });
+
+Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+Route::get('/dashboard', [OrderController::class, 'dashboardSummary'])->middleware(['auth'])->name('dashboard');
+Route::get('/orders', [OrderController::class, 'index'])->middleware(['auth'])->name('orders.index');
+Route::post('/orders/{order}/confirm', [OrderController::class, 'confirm'])->middleware(['auth'])->name('orders.confirm');
+
 
 require __DIR__.'/auth.php';

@@ -69,7 +69,9 @@
                                             @method('DELETE')
                                             <button class="bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded">Delete</button>
                                         </form>
-                                        {{-- (Optional: Tambah tombol edit jika ingin) --}}
+                                        <a href="{{ route('product.edit', $product->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-2 py-1 rounded w-full text-center block">
+                                            Edit
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
