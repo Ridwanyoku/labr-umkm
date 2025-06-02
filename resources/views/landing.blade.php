@@ -9,10 +9,10 @@
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-indigo-50 text-gray-800">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-lg py-4 sticky top-0 z-50">
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-500 shadow-lg py-4 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
-                <i class="fas fa-store text-yellow-300 text-2xl mr-2"></i>
+                <img src="{{ asset('images/logo.png') }}" alt="Your Image" width="100" height="100" />
                 <h1 class="text-2xl font-bold text-white">Kogarigami</h1>
             </div>
             
@@ -46,7 +46,7 @@
     @endif
 
     <!-- Slider Sederhana -->
-    <section class="py-6 px-4">
+    {{-- <section class="py-6 px-4">
         <div class="max-w-7xl mx-auto mb-8">
             <div x-data="{ currentSlide: 0 }" class="relative h-64 rounded-xl overflow-hidden shadow-lg">
                 <!-- Slide 1 -->
@@ -78,12 +78,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Daftar Produk -->
     <main class="py-6 pb-16 px-4">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl font-bold text-center mb-10 text-indigo-800">Produk Unggulan Kami</h2>
+            <h2 class="text-2xl font-bold text-center mb-10 text-indigo-800">Produk kami</h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach ($products as $product)

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-700 leading-tight">
             {{ __('Daftar Pesanan') }}
         </h2>
     </x-slot>
@@ -8,8 +8,8 @@
 
     <div class="py-6 max-w-7xl mx-auto">
         {{-- Pesanan Belum Dikonfirmasi --}}
-        <div class="bg-white dark:bg-gray-800 p-6 rounded shadow mb-6">
-            <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-white">Belum Dikonfirmasi</h3>
+        <div class="bg-white dark:bg-gray-200 p-6 rounded shadow mb-6">
+            <h3 class="text-lg font-bold mb-4 text-gray-800 ">Belum Dikonfirmasi</h3>
             @forelse ($pendingOrders as $order)
                 <div class="border-b border-gray-300 dark:border-gray-600 py-4">
                     <p><strong>{{ $order->name }}</strong> memesan <strong>{{ $order->quantity }}</strong> item <strong>{{ $order->product->name }}</strong></p>
@@ -26,7 +26,7 @@
 
         {{-- Pesanan Dikonfirmasi --}}
         <div class="bg-white dark:bg-gray-200 p-6 rounded shadow">
-            <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-white">Sudah Dikonfirmasi</h3>
+            <h3 class="text-lg font-bold mb-4 text-gray-800">Sudah Dikonfirmasi</h3>
             @forelse ($confirmedOrders as $order)
                 <div class="border-b border-gray-300 dark:border-gray-600 py-4">
                     <p><strong>{{ $order->name }}</strong> memesan <strong>{{ $order->quantity }}</strong> item <strong>{{ $order->product->name }}</strong></p>
