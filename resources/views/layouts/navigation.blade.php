@@ -60,6 +60,12 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+
+                                            @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="bg-white px-4 py-1 rounded-full text-indigo-700 text-sm hover:bg-gray-100 transition">
+                            Register
+                        </a>
+                    @endif
                     </x-slot>
                 </x-dropdown>
             </div>

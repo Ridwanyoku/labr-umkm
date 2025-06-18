@@ -24,14 +24,9 @@
                     </a>
                 @else
                     <a href="{{ route('login') }}" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-1 rounded-full text-white text-sm transition">
-                        Log in
+                        Login Admin
                     </a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="bg-white px-4 py-1 rounded-full text-indigo-700 text-sm hover:bg-gray-100 transition">
-                            Register
-                        </a>
-                    @endif
                 @endauth
             </nav>
             @endif
